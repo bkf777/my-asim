@@ -1,0 +1,86 @@
+
+> amis-editor-demo@1.0.0 build
+> amis build
+
+                                           
+                             _/            
+    _/_/_/  _/_/_/  _/_/          _/_/_/   
+ _/    _/  _/    _/    _/  _/  _/_/        
+_/    _/  _/    _/    _/  _/      _/_/     
+ _/_/_/  _/    _/    _/  _/  _/_/_/        
+                                           
+                                           
+当前版本：v3.2.9.
+
+- [amis]开始构建...
+- [amis]开始构建生产环境的代码...
+assets by path [1m[32mscripts/chunk/*.js[39m[22m 18.8 MiB
+  assets by status [1m[33m16.7 MiB[39m[22m [1m[33m[big][39m[22m 14 assets
+  + 230 assets
+assets by chunk 3.96 MiB (auxiliary name: index)
+  assets by path [1m[32mfonts/[39m[22m 1.53 MiB 15 assets
+  assets by path [1m[32mimg/[39m[22m 2.43 MiB 6 assets
+assets by path [1m[32m*.js[39m[22m 6.2 MiB
+  asset [1m[33mts.worker.js[39m[22m [1m[33m4.45 MiB[39m[22m [1m[32m[emitted][39m[22m [1m[32m[minimized][39m[22m [1m[33m[big][39m[22m 1 related asset
+  asset [1m[33mcss.worker.js[39m[22m [1m[33m859 KiB[39m[22m [1m[32m[emitted][39m[22m [1m[32m[minimized][39m[22m [1m[33m[big][39m[22m 1 related asset
+  + 3 assets
+assets by path [1m[32mcss/*.css[39m[22m 2.87 MiB
+  asset [1m[33mcss/index.36ee69ae.css[39m[22m [1m[33m2.78 MiB[39m[22m [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m [1m[33m[big][39m[22m (name: index)
+  asset [1m[32mcss/8818.0677e292.css[39m[22m 89.9 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+asset [1m[32mfonts/codicon.59002d8.ttf[39m[22m 66.6 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [from: node_modules/monaco-editor/esm/vs/base/browser/ui/codicons/codicon/codicon.ttf]
+asset [1m[32mindex.html[39m[22m 919 bytes [1m[32m[emitted][39m[22m
+Entrypoint [1mindex[39m[22m [1m[33m[big][39m[22m 6.92 MiB (3.96 MiB) = [1m[32mcss/index.36ee69ae.css[39m[22m 2.78 MiB [1m[32mscripts/chunk/index.40664b96.js[39m[22m 4.13 MiB 21 auxiliary assets
+
+[1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[3]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-11.use[4]!./src/scss/style.scss[39m[22m
+<w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+<w> [1m[33m[39m[22m
+<w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+<w> [1m[33m[39m[22m
+<w> [1m[33mnull[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/amis/lib/themes/cxd.css[39m[22m (./node_modules/amis/lib/themes/cxd.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[3]!./node_modules/amis/lib/themes/cxd.css)
+[1mModule Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+Warning
+
+(41592:5) autoprefixer: Replace fill-available to stretch, because spec had been changed[39m[22m
+ @ ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-9.use[1]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[3]!./node_modules/amis/lib/themes/cxd.css
+ @ ./node_modules/amis/lib/themes/cxd.css 4:14-224
+ @ ./src/index.tsx 12:0-33
+
+[1m[33mWARNING[39m[22m in [1masset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  json.worker.js (250 KiB)
+  html.worker.js (555 KiB)
+  css.worker.js (859 KiB)
+  ts.worker.js (4.45 MiB)
+  img/iconfont.f9f9050.svg (693 KiB)
+  img/fa-brands-400.2f517e0.svg (730 KiB)
+  img/fa-solid-900.7a8b4f1.svg (897 KiB)
+  css/index.36ee69ae.css (2.78 MiB)
+  scripts/chunk/4856.5d15dd95.js (1.38 MiB)
+  scripts/chunk/4785.6114dad5.js (323 KiB)
+  scripts/chunk/index.40664b96.js (4.13 MiB)
+  scripts/chunk/8818.2a369256.js (2.5 MiB)
+  scripts/chunk/7226.25f2b06f.js (718 KiB)
+  scripts/chunk/4974.0e682b80.js (919 KiB)
+  scripts/chunk/4192.238124e0.js (540 KiB)
+  scripts/chunk/5237.550a4f85.js (2.15 MiB)
+  scripts/chunk/3959.f283d207.js (338 KiB)
+  scripts/chunk/3366.4c52b761.js (1 MiB)
+  scripts/chunk/9552.d2c1cb99.js (1.01 MiB)
+  scripts/chunk/8579.ccb9af86.js (265 KiB)
+  scripts/chunk/9473.e05fcd01.js (346 KiB)
+  scripts/chunk/5021.7a6fab8c.js (1.16 MiB)[39m[22m
+
+[1m[33mWARNING[39m[22m in [1mentrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  index (6.92 MiB)
+      css/index.36ee69ae.css
+      scripts/chunk/index.40664b96.js
+[39m[22m
+
+webpack 5.104.1 compiled with [1m[33m3 warnings[39m[22m in 130082 ms
+
+  构建完成.
+
