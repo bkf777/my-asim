@@ -1,10 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: 获取当前时间作为默认 commit message
-set "datestr=%date:~0,4%-%date:~5,2%-%date:~8,2% %time:~0,2%:%time:~3,2%:%time:~6,2%"
+:: Use a simple date format that works in CMD
+set "datestr=%date% %time%"
 
-:: 如果提供了参数，则使用参数作为 commit message
+:: Use argument if provided, else use default
 if "%~1"=="" (
     set "msg=Auto commit at !datestr!"
 ) else (
@@ -22,10 +22,9 @@ git push
 
 if %errorlevel% neq 0 (
     echo.
-    echo [ERROR] Push failed. Please check your connection or git status.
+    echo [ERROR] Push failed.
     exit /b %errorlevel%
 )
 
 echo.
 echo [SUCCESS] Changes pushed successfully.
-pause
