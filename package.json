@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "amis dev",
     "build": "amis build",
-    "format": "prettier --write \"src/**/**/*.{js,jsx,ts,tsx,vue,scss,json}\""
+    "format": "prettier --write \"src/**/**/*.{js,jsx,ts,tsx,vue,scss,json}\"",
+    "push": "push.bat"
   },
   "repository": {
     "type": "git",
