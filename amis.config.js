@@ -50,6 +50,10 @@ module.exports = {
     }
   },
   dev: {
+    // 开启 DevServer 跨域
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
     entry: {
       // 本地调试模式的入口
       index: './src/index.tsx'
@@ -65,9 +69,6 @@ module.exports = {
     cssSourceMap: false,
     closeHotReload: false, // 是否关闭热更新
     closeEditorClient: true, // 是否关闭自动注入editor
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    },
     proxyTable: {
       /**
        * 将含有'/apiTest'路径的api代理到'http://api-test.com.cn'上，

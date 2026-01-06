@@ -2,7 +2,7 @@
 # 使用 Node 20 (slim) 镜像，某些依赖需要高版本 Node。
 FROM node:20-slim AS build-stage
 
-WORKDIR /app
+WORKDIR /app 
 
 # 安装 git，某些依赖项需要从 git 仓库拉取
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
@@ -50,7 +50,10 @@ COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 # 默认端口
-ENV PORT=80
+ENV PORT=3001
+
+# 暴露端口，便于容器运行时直接映射
+EXPOSE 3001
 
 # 使用自定义启动脚本
 CMD ["/app/entrypoint.sh"]
