@@ -1,0 +1,38 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "settings": {
+        "react": {
+            "version": "16.14"
+        }
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "react-hooks",
+        "prettier"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        "react/prop-types": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "prettier/prettier": "warn",
+        "@typescript-eslint/no-explicit-any": "warn"
+    }
+}
