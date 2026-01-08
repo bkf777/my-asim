@@ -1,49 +1,60 @@
-import React, { useState } from 'react';
-import { Editor } from 'amis-editor';
-import 'amis/lib/themes/cxd.css';
+import React from 'react';
+import { Provider } from 'mobx-react';
+import { toast, alert, confirm } from 'amis';
+import axios from 'axios';
+import { MainStore } from './store/index';
+import RootRoute from './route/index';
+import copy from 'copy-to-clipboard';
 
-const App: React.FC = () => {
-  const [schema, setSchema] = useState<any>({
-    type: 'page',
-    title: 'AMIS 可视化编辑器',
-    body: {
-      type: 'form',
-      title: '表单',
-      body: [
-        {
-          type: 'input-text',
-          name: 'name',
-          label: '姓名',
-        },
-        {
-          type: 'input-email',
-          name: 'email',
-          label: '邮箱',
-        },
-      ],
-    },
-  });
+export default function App(): JSX.Element {
+  const store = ((window as any).store = MainStore.create(
+    {},
+    {
+      fetcher: ({ url, method, data, config, headers }: any) => {
+        config = config || {};
+        config.headers = config.headers || headers || {};
+        config.withCredentials = true;
+
+        if (method !== 'post' && method !== 'put' && method !== 'patch') {
+          if (data) {
+            config.params = data;
+          }
+          return (axios as any)[method](url, config);
+        } else if (data && data instanceof FormData) {
+          // config.headers = config.headers || {};
+          // config.headers['Content-Type'] = 'multipart/form-data';
+        } else if (
+          data &&
+          typeof data !== 'string' &&
+          !(data instanceof Blob) &&
+          !(data instanceof ArrayBuffer)
+        ) {
+          data = JSON.stringify(data);
+          config.headers['Content-Type'] = 'application/json';
+        }
+
+        return (axios as any)[method](url, data, config);
+      },
+      isCancel: (e: any) => axios.isCancel(e),
+      notify: (type: 'success' | 'error' | 'info', msg: string) => {
+        toast[type]
+          ? toast[type](msg, type === 'error' ? '系统错误' : '系统消息')
+          : console.warn('[Notify]', type, msg);
+        console.log('[notify]', type, msg);
+      },
+      alert,
+      confirm,
+      copy: (contents: string, options: any = {}) => {
+        const ret = copy(contents, options);
+        ret && (!options || options.shutup !== true) && toast.info('内容已拷贝到剪切板');
+        return ret;
+      },
+    }
+  ));
 
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ padding: '16px', background: '#f5f5f5', borderBottom: '1px solid #e8e8e8' }}>
-        <h2 style={{ margin: 0 }}>AMIS 可视化编辑器 - Qiankun 子应用</h2>
-      </div>
-      <div style={{ flex: 1, overflow: 'hidden' }}>
-        <Editor
-          value={schema}
-          onChange={(value) => {
-            console.log('Schema updated:', value);
-            setSchema(value);
-          }}
-          preview={false}
-          autoFocus={true}
-          theme="cxd"
-          className="editor-app"
-        />
-      </div>
-    </div>
+    <Provider store={store}>
+      <RootRoute store={store} />
+    </Provider>
   );
-};
-
-export default App;
+}
